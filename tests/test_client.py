@@ -26,7 +26,7 @@ def test_create_submission_sends_expected_json_and_headers():
             "bin.dat": b"\x00\x01",
         },
     )
-    expected_body = submission.encode_to_base64().to_body()
+    expected_body = submission.to_body()
 
     # Transport handler that asserts request and returns token
     def handler(request: httpx.Request) -> httpx.Response:

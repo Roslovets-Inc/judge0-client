@@ -1,4 +1,4 @@
-from typing import Self, Mapping
+from typing import Any, Mapping
 from pydantic import BaseModel, Field
 from .base_submission import BaseSubmission
 from ..utils.base64_utils import base64_encode
@@ -15,10 +15,12 @@ class SingleFileSubmission(BaseSubmission, BaseModel):
         description="Additional files that should be available alongside the source code (encoded zip)"
     )
 
-    def encode_to_base64(self) -> Self:
-        return self.model_copy(update={
-            "source_code": base64_encode(self.source_code),
-            "stdin": base64_encode(self.stdin) if self.stdin else self.stdin,
-            "expected_output": base64_encode(self.expected_output) if self.expected_output else self.expected_output,
-            "additional_files": create_encoded_zip(self.additional_files) if self.additional_files else None
-        })
+    def to_body(self) -> dict[str, Any]:
+        data = self.model_dump(exclude_none=True)
+        fields_to_encode = ["source_code", "stdin", "expected_output"]
+        for f in fields_to_encode:
+            if f in data and data[f] is not None:
+                data[f] = base64_encode(data[f])
+        if "additional_files" in data:
+            data["additional_files"] = create_encoded_zip(data["additional_files"])
+        return data

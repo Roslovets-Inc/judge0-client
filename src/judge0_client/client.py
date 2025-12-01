@@ -74,7 +74,7 @@ class Judge0Client:
         resp = await self.client.post(
             "/submissions",
             params={"base64_encoded": "true"},
-            json=request.encode_to_base64().to_body(),
+            json=request.to_body(),
         )
         raise_for_status(resp)
         return SubmissionResponse.from_response(resp)

@@ -53,9 +53,6 @@ class BaseSubmission(BaseModel, ABC):
         description="URL on which Judge0 will issue PUT request with the submission in a request body after submission has been done"
     )
 
-    def to_body(self) -> dict[str, Any]:
-        return self.model_dump(exclude_none=True)
-
     @abstractmethod
-    def encode_to_base64(self) -> Self:
+    def to_body(self) -> dict[str, Any]:
         pass

@@ -1,4 +1,4 @@
-from typing import Self, Literal, Mapping
+from typing import Any, Literal, Mapping
 from pydantic import BaseModel, Field
 from .base_submission import BaseSubmission
 from ..utils.base64_utils import base64_encode
@@ -13,11 +13,12 @@ class MultiFileSubmission(BaseSubmission, BaseModel):
         description="Scripts to run and compile and additional files"
     )
 
-    def encode_to_base64(self) -> Self:
-        if "run" not in self.additional_files:
-            raise ValueError("run script should be present in additional files")
-        return self.model_copy(update={
-            "stdin": base64_encode(self.stdin) if self.stdin else self.stdin,
-            "expected_output": base64_encode(self.expected_output) if self.expected_output else self.expected_output,
-            "additional_files": create_encoded_zip(self.additional_files)
-        })
+    def to_body(self) -> dict[str, Any]:
+        data = self.model_dump(exclude_none=True)
+        fields_to_encode = ["stdin", "expected_output"]
+        for f in fields_to_encode:
+            if f in data and data[f] is not None:
+                data[f] = base64_encode(data[f])
+        if "additional_files" in data:
+            data["additional_files"] = create_encoded_zip(data["additional_files"])
+        return data
