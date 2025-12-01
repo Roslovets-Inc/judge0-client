@@ -1,0 +1,9 @@
+.venv
+__pycache__
+.idea
+dist
+*.egg-info
+script*.py
+.coverage
+htmlcov
+.site
