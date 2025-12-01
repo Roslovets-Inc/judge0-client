@@ -432,7 +432,7 @@ and Pydantic models for requests and responses.</p>
         <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
             <span class="s2">&quot;/submissions&quot;</span><span class="p">,</span>
             <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;base64_encoded&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">},</span>
-            <span class="n">json</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">encode_to_base64</span><span class="p">()</span><span class="o">.</span><span class="n">to_body</span><span class="p">(),</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">to_body</span><span class="p">(),</span>
         <span class="p">)</span>
         <span class="n">raise_for_status</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">SubmissionResponse</span><span class="o">.</span><span class="n">from_response</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
@@ -559,7 +559,7 @@ and Pydantic models for requests and responses.</p>
     <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
         <span class="s2">&quot;/submissions&quot;</span><span class="p">,</span>
         <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;base64_encoded&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">},</span>
-        <span class="n">json</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">encode_to_base64</span><span class="p">()</span><span class="o">.</span><span class="n">to_body</span><span class="p">(),</span>
+        <span class="n">json</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">to_body</span><span class="p">(),</span>
     <span class="p">)</span>
     <span class="n">raise_for_status</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">SubmissionResponse</span><span class="o">.</span><span class="n">from_response</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
@@ -901,10 +901,7 @@ and Pydantic models for requests and responses.</p>
 <span class="normal">55</span>
 <span class="normal">56</span>
 <span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BaseSubmission</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="normal">58</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BaseSubmission</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Request model for creating a submission in Judge0.&quot;&quot;&quot;</span>
 
     <span class="n">compiler_options</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
@@ -953,11 +950,8 @@ and Pydantic models for requests and responses.</p>
         <span class="n">description</span><span class="o">=</span><span class="s2">&quot;URL on which Judge0 will issue PUT request with the submission in a request body after submission has been done&quot;</span>
     <span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">to_body</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(</span><span class="n">exclude_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">encode_to_base64</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_body</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
         <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
               </details>
@@ -1622,7 +1616,9 @@ and Pydantic models for requests and responses.</p>
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SingleFileSubmission</span><span class="p">(</span><span class="n">BaseSubmission</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">):</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SingleFileSubmission</span><span class="p">(</span><span class="n">BaseSubmission</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Request model for creating a single-file submission in Judge0.&quot;&quot;&quot;</span>
 
     <span class="n">source_code</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Program’s source code&quot;</span><span class="p">)</span>
@@ -1632,13 +1628,15 @@ and Pydantic models for requests and responses.</p>
         <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Additional files that should be available alongside the source code (encoded zip)&quot;</span>
     <span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">encode_to_base64</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="p">{</span>
-            <span class="s2">&quot;source_code&quot;</span><span class="p">:</span> <span class="n">base64_encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_code</span><span class="p">),</span>
-            <span class="s2">&quot;stdin&quot;</span><span class="p">:</span> <span class="n">base64_encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdin</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span>
-            <span class="s2">&quot;expected_output&quot;</span><span class="p">:</span> <span class="n">base64_encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span><span class="p">,</span>
-            <span class="s2">&quot;additional_files&quot;</span><span class="p">:</span> <span class="n">create_encoded_zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">additional_files</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">additional_files</span> <span class="k">else</span> <span class="kc">None</span>
-        <span class="p">})</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_body</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(</span><span class="n">exclude_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fields_to_encode</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;source_code&quot;</span><span class="p">,</span> <span class="s2">&quot;stdin&quot;</span><span class="p">,</span> <span class="s2">&quot;expected_output&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields_to_encode</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">data</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">base64_encode</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">f</span><span class="p">])</span>
+        <span class="k">if</span> <span class="s2">&quot;additional_files&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;additional_files&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_encoded_zip</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;additional_files&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">data</span>
 </code></pre></div></td></tr></table></div>
               </details>
 
@@ -2364,7 +2362,8 @@ and Pydantic models for requests and responses.</p>
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MultiFileSubmission</span><span class="p">(</span><span class="n">BaseSubmission</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">):</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MultiFileSubmission</span><span class="p">(</span><span class="n">BaseSubmission</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Request model for creating a multi-file submission in Judge0.&quot;&quot;&quot;</span>
 
     <span class="n">language_id</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="mi">89</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">89</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Programming language ID&quot;</span><span class="p">)</span>
@@ -2372,14 +2371,15 @@ and Pydantic models for requests and responses.</p>
         <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Scripts to run and compile and additional files&quot;</span>
     <span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">encode_to_base64</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s2">&quot;run&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">additional_files</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;run script should be present in additional files&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="p">{</span>
-            <span class="s2">&quot;stdin&quot;</span><span class="p">:</span> <span class="n">base64_encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdin</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span>
-            <span class="s2">&quot;expected_output&quot;</span><span class="p">:</span> <span class="n">base64_encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span><span class="p">,</span>
-            <span class="s2">&quot;additional_files&quot;</span><span class="p">:</span> <span class="n">create_encoded_zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">additional_files</span><span class="p">)</span>
-        <span class="p">})</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_body</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(</span><span class="n">exclude_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fields_to_encode</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;stdin&quot;</span><span class="p">,</span> <span class="s2">&quot;expected_output&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields_to_encode</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">data</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">base64_encode</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">f</span><span class="p">])</span>
+        <span class="k">if</span> <span class="s2">&quot;additional_files&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;additional_files&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_encoded_zip</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;additional_files&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">data</span>
 </code></pre></div></td></tr></table></div>
               </details>
 
