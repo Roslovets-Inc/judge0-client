@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-12-01)
+
+### Features
+
+- Add info methods
+  ([`c6f42fb`](https://github.com/Roslovets-Inc/judge0-client/commit/c6f42fb5ba6050baac513c0aecdb4fc32ac866ed))
+
+
 ## v0.1.1 (2025-12-01)
 
 ### Bug Fixes
