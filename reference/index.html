@@ -1,0 +1,3119 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Pavel Roslovets" /><link rel="canonical" href="https://roslovets-inc.github.io/judge0-client/reference/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>API Reference - judge0-client</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API Reference";
+        var mkdocs_page_input_path = "reference.md";
+        var mkdocs_page_url = "/judge0-client/reference/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../img/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Judge0 Client</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">API Reference</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#judge0_client">judge0_client</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#judge0_client.Judge0Client">Judge0Client</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.Judge0Client.open">open</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.Judge0Client.create_submission">create_submission</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.Judge0Client.get_submission">get_submission</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#judge0_client.Judge0Error">Judge0Error</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#judge0_client.BaseSubmission">BaseSubmission</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.compiler_options">compiler_options</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.command_line_arguments">command_line_arguments</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.stdin">stdin</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.expected_output">expected_output</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.cpu_time_limit">cpu_time_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.cpu_extra_time">cpu_extra_time</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.wall_time_limit">wall_time_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.memory_limit">memory_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.stack_limit">stack_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.max_processes_and_or_threads">max_processes_and_or_threads</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.enable_per_process_and_thread_time_limit">enable_per_process_and_thread_time_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.enable_per_process_and_thread_memory_limit">enable_per_process_and_thread_memory_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.max_file_size">max_file_size</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.redirect_stderr_to_stdout">redirect_stderr_to_stdout</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.enable_network">enable_network</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.number_of_runs">number_of_runs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.BaseSubmission.callback_url">callback_url</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#judge0_client.SingleFileSubmission">SingleFileSubmission</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.compiler_options">compiler_options</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.command_line_arguments">command_line_arguments</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.stdin">stdin</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.expected_output">expected_output</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.cpu_time_limit">cpu_time_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.cpu_extra_time">cpu_extra_time</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.wall_time_limit">wall_time_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.memory_limit">memory_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.stack_limit">stack_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.max_processes_and_or_threads">max_processes_and_or_threads</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.enable_per_process_and_thread_time_limit">enable_per_process_and_thread_time_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.enable_per_process_and_thread_memory_limit">enable_per_process_and_thread_memory_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.max_file_size">max_file_size</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.redirect_stderr_to_stdout">redirect_stderr_to_stdout</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.enable_network">enable_network</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.number_of_runs">number_of_runs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.callback_url">callback_url</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.source_code">source_code</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.language_id">language_id</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.SingleFileSubmission.additional_files">additional_files</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#judge0_client.MultiFileSubmission">MultiFileSubmission</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.compiler_options">compiler_options</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.command_line_arguments">command_line_arguments</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.stdin">stdin</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.expected_output">expected_output</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.cpu_time_limit">cpu_time_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.cpu_extra_time">cpu_extra_time</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.wall_time_limit">wall_time_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.memory_limit">memory_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.stack_limit">stack_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.max_processes_and_or_threads">max_processes_and_or_threads</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.enable_per_process_and_thread_time_limit">enable_per_process_and_thread_time_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.enable_per_process_and_thread_memory_limit">enable_per_process_and_thread_memory_limit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.max_file_size">max_file_size</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.redirect_stderr_to_stdout">redirect_stderr_to_stdout</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.enable_network">enable_network</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.number_of_runs">number_of_runs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.callback_url">callback_url</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.language_id">language_id</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#judge0_client.MultiFileSubmission.additional_files">additional_files</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#judge0_client.SubmissionResponse">SubmissionResponse</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#judge0_client.SubmissionDetail">SubmissionDetail</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">judge0-client</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Roslovets-Inc/judge0-client/edit/master/docs/reference.md">Edit on judge0-client</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-reference">API Reference</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="judge0_client" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">judge0_client</span>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Judge0 client package.</p>
+<p>Provides <code>Judge0Client</code> for interacting with the Judge0 API<br />
+and Pydantic models for requests and responses.</p>
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="judge0_client.Judge0Client" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">Judge0Client</span>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Asynchronous client for the Judge0 API.</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/judge0_client/client.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Judge0Client</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Asynchronous client for the Judge0 API.&quot;&quot;&quot;</span>
+
+    <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">httpx</span><span class="o">.</span><span class="n">Timeout</span>
+    <span class="n">_auth_header</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">_auth_token</span><span class="p">:</span> <span class="n">SecretStr</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_client</span><span class="p">:</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span> <span class="o">|</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">httpx</span><span class="o">.</span><span class="n">Timeout</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="n">auth_header</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;X-Auth-Token&quot;</span><span class="p">,</span>
+            <span class="n">auth_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">SecretStr</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">base_url</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_auth_header</span> <span class="o">=</span> <span class="n">auth_header</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">auth_token</span><span class="p">,</span> <span class="n">SecretStr</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_auth_token</span> <span class="o">=</span> <span class="n">auth_token</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_auth_token</span> <span class="o">=</span> <span class="n">SecretStr</span><span class="p">(</span><span class="n">auth_token</span><span class="p">)</span> <span class="k">if</span> <span class="n">auth_token</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="fm">__aenter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="fm">__aexit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc</span><span class="p">,</span> <span class="n">tb</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># noqa: ANN001</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">aclose</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the underlying httpx client.&quot;&quot;&quot;</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">({</span>
+            <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+        <span class="p">})</span> <span class="o">|</span> <span class="p">({</span>
+                  <span class="bp">self</span><span class="o">.</span><span class="n">_auth_header</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_token</span><span class="o">.</span><span class="n">get_secret_value</span><span class="p">()</span>
+              <span class="p">}</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_token</span> <span class="k">else</span> <span class="p">{})</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span>
+                <span class="n">base_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">,</span>
+                <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+            <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">aclose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">aclose</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">client</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Client is not initialized. Use &#39;async with&#39; or call open().&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create_submission</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">request</span><span class="p">:</span> <span class="n">BaseSubmission</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SubmissionResponse</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a submission.&quot;&quot;&quot;</span>
+
+        <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s2">&quot;/submissions&quot;</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;base64_encoded&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">},</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">encode_to_base64</span><span class="p">()</span><span class="o">.</span><span class="n">to_body</span><span class="p">(),</span>
+        <span class="p">)</span>
+        <span class="n">raise_for_status</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">SubmissionResponse</span><span class="o">.</span><span class="n">from_response</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_submission</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SubmissionDetail</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get submission result by token.&quot;&quot;&quot;</span>
+
+        <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/submissions/</span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;base64_encoded&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">raise_for_status</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">SubmissionDetail</span><span class="o">.</span><span class="n">from_response</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span><span class="o">.</span><span class="n">decode_base64</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="judge0_client.Judge0Client.open" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">open</span>
+
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">open</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the underlying httpx client.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/judge0_client/client.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialize the underlying httpx client.&quot;&quot;&quot;</span>
+    <span class="n">headers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">({</span>
+        <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="p">})</span> <span class="o">|</span> <span class="p">({</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">_auth_header</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_token</span><span class="o">.</span><span class="n">get_secret_value</span><span class="p">()</span>
+          <span class="p">}</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_token</span> <span class="k">else</span> <span class="p">{})</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span>
+            <span class="n">base_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="judge0_client.Judge0Client.create_submission" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">create_submission</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-async"><code>async</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create_submission</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Create a submission.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/judge0_client/client.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create_submission</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">request</span><span class="p">:</span> <span class="n">BaseSubmission</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SubmissionResponse</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a submission.&quot;&quot;&quot;</span>
+
+    <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="s2">&quot;/submissions&quot;</span><span class="p">,</span>
+        <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;base64_encoded&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">},</span>
+        <span class="n">json</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">encode_to_base64</span><span class="p">()</span><span class="o">.</span><span class="n">to_body</span><span class="p">(),</span>
+    <span class="p">)</span>
+    <span class="n">raise_for_status</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SubmissionResponse</span><span class="o">.</span><span class="n">from_response</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="judge0_client.Judge0Client.get_submission" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">get_submission</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-async"><code>async</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">get_submission</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Get submission result by token.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/judge0_client/client.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_submission</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SubmissionDetail</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get submission result by token.&quot;&quot;&quot;</span>
+
+    <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/submissions/</span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;base64_encoded&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">raise_for_status</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SubmissionDetail</span><span class="o">.</span><span class="n">from_response</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span><span class="o">.</span><span class="n">decode_base64</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="judge0_client.Judge0Error" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">Judge0Error</span>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="Exception">Exception</span></code></p>
+
+
+
+        <p>Generic Judge0 client exception.</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/judge0_client/utils/exceptions.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Judge0Error</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generic Judge0 client exception.&quot;&quot;&quot;</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="judge0_client.BaseSubmission" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">BaseSubmission</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code>, <code><span title="abc.ABC">ABC</span></code></p>
+
+        <p>Request model for creating a submission in Judge0.</p>
+
+    
+
+        <p>Fields:</p>
+        <ul>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="compiler_options
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.compiler_options)" href="#judge0_client.BaseSubmission.compiler_options">compiler_options</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="command_line_arguments
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.command_line_arguments)" href="#judge0_client.BaseSubmission.command_line_arguments">command_line_arguments</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="stdin
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.stdin)" href="#judge0_client.BaseSubmission.stdin">stdin</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="expected_output
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.expected_output)" href="#judge0_client.BaseSubmission.expected_output">expected_output</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="cpu_time_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.cpu_time_limit)" href="#judge0_client.BaseSubmission.cpu_time_limit">cpu_time_limit</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="cpu_extra_time
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.cpu_extra_time)" href="#judge0_client.BaseSubmission.cpu_extra_time">cpu_extra_time</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="wall_time_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.wall_time_limit)" href="#judge0_client.BaseSubmission.wall_time_limit">wall_time_limit</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="memory_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.memory_limit)" href="#judge0_client.BaseSubmission.memory_limit">memory_limit</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="stack_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.stack_limit)" href="#judge0_client.BaseSubmission.stack_limit">stack_limit</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="max_processes_and_or_threads
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.max_processes_and_or_threads)" href="#judge0_client.BaseSubmission.max_processes_and_or_threads">max_processes_and_or_threads</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="enable_per_process_and_thread_time_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.enable_per_process_and_thread_time_limit)" href="#judge0_client.BaseSubmission.enable_per_process_and_thread_time_limit">enable_per_process_and_thread_time_limit</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="enable_per_process_and_thread_memory_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.enable_per_process_and_thread_memory_limit)" href="#judge0_client.BaseSubmission.enable_per_process_and_thread_memory_limit">enable_per_process_and_thread_memory_limit</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="max_file_size
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.max_file_size)" href="#judge0_client.BaseSubmission.max_file_size">max_file_size</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="redirect_stderr_to_stdout
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.redirect_stderr_to_stdout)" href="#judge0_client.BaseSubmission.redirect_stderr_to_stdout">redirect_stderr_to_stdout</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="enable_network
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.enable_network)" href="#judge0_client.BaseSubmission.enable_network">enable_network</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="number_of_runs
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.number_of_runs)" href="#judge0_client.BaseSubmission.number_of_runs">number_of_runs</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="callback_url
+
+
+  
+      pydantic-field
+   (judge0_client.models.base_submission.BaseSubmission.callback_url)" href="#judge0_client.BaseSubmission.callback_url">callback_url</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+        </ul>
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/judge0_client/models/base_submission.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BaseSubmission</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Request model for creating a submission in Judge0.&quot;&quot;&quot;</span>
+
+    <span class="n">compiler_options</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Options for the compiler (i.e. compiler flags)&quot;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span>
+    <span class="p">)</span>
+    <span class="n">command_line_arguments</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Command line arguments for the program&quot;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span>
+    <span class="p">)</span>
+    <span class="n">stdin</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Input for program&quot;</span><span class="p">)</span>
+    <span class="n">expected_output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Expected output of program. Used when you want to compare with stdout&quot;</span>
+    <span class="p">)</span>
+    <span class="n">cpu_time_limit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Default runtime limit for every program (seconds)&quot;</span>
+    <span class="p">)</span>
+    <span class="n">cpu_extra_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;When a time limit is exceeded, wait for extra time, before killing the program (seconds)&quot;</span>
+    <span class="p">)</span>
+    <span class="n">wall_time_limit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Limit wall-clock time in seconds (seconds)&quot;</span>
+    <span class="p">)</span>
+    <span class="n">memory_limit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Limit address space of the program (kilobytes)&quot;</span><span class="p">)</span>
+    <span class="n">stack_limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Limit process stack (kilobytes)&quot;</span><span class="p">)</span>
+    <span class="n">max_processes_and_or_threads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Maximum number of processes and/or threads program can create&quot;</span>
+    <span class="p">)</span>
+    <span class="n">enable_per_process_and_thread_time_limit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;If true then cpu_time_limit will be used as per process and thread&quot;</span>
+    <span class="p">)</span>
+    <span class="n">enable_per_process_and_thread_memory_limit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;If true then memory_limit will be used as per process and thread&quot;</span>
+    <span class="p">)</span>
+    <span class="n">max_file_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Limit file size created or modified by the program (kilobytes)&quot;</span>
+    <span class="p">)</span>
+    <span class="n">redirect_stderr_to_stdout</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;If true standard error will be redirected to standard output&quot;</span>
+    <span class="p">)</span>
+    <span class="n">enable_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;	If true program will have network access&quot;</span><span class="p">)</span>
+    <span class="n">number_of_runs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Run each program number_of_runs times and take average of time and memory&quot;</span>
+    <span class="p">)</span>
+    <span class="n">callback_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;URL on which Judge0 will issue PUT request with the submission in a request body after submission has been done&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_body</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(</span><span class="n">exclude_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode_to_base64</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+        <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.compiler_options" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">compiler_options</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">compiler_options</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Options for the compiler (i.e. compiler flags)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.command_line_arguments" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">command_line_arguments</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">command_line_arguments</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Command line arguments for the program</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.stdin" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">stdin</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">stdin</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Input for program</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.expected_output" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">expected_output</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">expected_output</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Expected output of program. Used when you want to compare with stdout</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.cpu_time_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">cpu_time_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">cpu_time_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Default runtime limit for every program (seconds)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.cpu_extra_time" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">cpu_extra_time</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">cpu_extra_time</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>When a time limit is exceeded, wait for extra time, before killing the program (seconds)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.wall_time_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">wall_time_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">wall_time_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit wall-clock time in seconds (seconds)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.memory_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">memory_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">memory_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit address space of the program (kilobytes)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.stack_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">stack_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">stack_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit process stack (kilobytes)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.max_processes_and_or_threads" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">max_processes_and_or_threads</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">max_processes_and_or_threads</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Maximum number of processes and/or threads program can create</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.enable_per_process_and_thread_time_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">enable_per_process_and_thread_time_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">enable_per_process_and_thread_time_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true then cpu_time_limit will be used as per process and thread</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.enable_per_process_and_thread_memory_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">enable_per_process_and_thread_memory_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">enable_per_process_and_thread_memory_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true then memory_limit will be used as per process and thread</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.max_file_size" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">max_file_size</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">max_file_size</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit file size created or modified by the program (kilobytes)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.redirect_stderr_to_stdout" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">redirect_stderr_to_stdout</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">redirect_stderr_to_stdout</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true standard error will be redirected to standard output</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.enable_network" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">enable_network</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">enable_network</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true program will have network access</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.number_of_runs" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">number_of_runs</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">number_of_runs</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Run each program number_of_runs times and take average of time and memory</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.BaseSubmission.callback_url" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">callback_url</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">callback_url</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>URL on which Judge0 will issue PUT request with the submission in a request body after submission has been done</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="judge0_client.SingleFileSubmission" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">SingleFileSubmission</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="BaseSubmission
+
+
+  
+      pydantic-model
+   (judge0_client.models.base_submission.BaseSubmission)" href="#judge0_client.BaseSubmission">BaseSubmission</a></code>, <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+
+        <p>Request model for creating a single-file submission in Judge0.</p>
+
+    
+
+        <p>Fields:</p>
+        <ul>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="compiler_options
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.compiler_options)" href="#judge0_client.BaseSubmission.compiler_options">compiler_options</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="command_line_arguments
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.command_line_arguments)" href="#judge0_client.BaseSubmission.command_line_arguments">command_line_arguments</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="stdin
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.stdin)" href="#judge0_client.BaseSubmission.stdin">stdin</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="expected_output
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.expected_output)" href="#judge0_client.BaseSubmission.expected_output">expected_output</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="cpu_time_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.cpu_time_limit)" href="#judge0_client.BaseSubmission.cpu_time_limit">cpu_time_limit</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="cpu_extra_time
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.cpu_extra_time)" href="#judge0_client.BaseSubmission.cpu_extra_time">cpu_extra_time</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="wall_time_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.wall_time_limit)" href="#judge0_client.BaseSubmission.wall_time_limit">wall_time_limit</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="memory_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.memory_limit)" href="#judge0_client.BaseSubmission.memory_limit">memory_limit</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="stack_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.stack_limit)" href="#judge0_client.BaseSubmission.stack_limit">stack_limit</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="max_processes_and_or_threads
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.max_processes_and_or_threads)" href="#judge0_client.BaseSubmission.max_processes_and_or_threads">max_processes_and_or_threads</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="enable_per_process_and_thread_time_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.enable_per_process_and_thread_time_limit)" href="#judge0_client.BaseSubmission.enable_per_process_and_thread_time_limit">enable_per_process_and_thread_time_limit</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="enable_per_process_and_thread_memory_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.enable_per_process_and_thread_memory_limit)" href="#judge0_client.BaseSubmission.enable_per_process_and_thread_memory_limit">enable_per_process_and_thread_memory_limit</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="max_file_size
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.max_file_size)" href="#judge0_client.BaseSubmission.max_file_size">max_file_size</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="redirect_stderr_to_stdout
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.redirect_stderr_to_stdout)" href="#judge0_client.BaseSubmission.redirect_stderr_to_stdout">redirect_stderr_to_stdout</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="enable_network
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.enable_network)" href="#judge0_client.BaseSubmission.enable_network">enable_network</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="number_of_runs
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.number_of_runs)" href="#judge0_client.BaseSubmission.number_of_runs">number_of_runs</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="callback_url
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.callback_url)" href="#judge0_client.BaseSubmission.callback_url">callback_url</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="source_code
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.source_code)" href="#judge0_client.SingleFileSubmission.source_code">source_code</a></code>
+                (<code><span title="str">str</span></code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="language_id
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.language_id)" href="#judge0_client.SingleFileSubmission.language_id">language_id</a></code>
+                (<code><span title="int">int</span></code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="additional_files
+
+
+  
+      pydantic-field
+   (judge0_client.models.single_file_submission.SingleFileSubmission.additional_files)" href="#judge0_client.SingleFileSubmission.additional_files">additional_files</a></code>
+                (<code><span title="typing.Mapping">Mapping</span>[<span title="str">str</span>, <span title="str">str</span> | <span title="bytes">bytes</span>] | None</code>)
+            </li>
+        </ul>
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/judge0_client/models/single_file_submission.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SingleFileSubmission</span><span class="p">(</span><span class="n">BaseSubmission</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Request model for creating a single-file submission in Judge0.&quot;&quot;&quot;</span>
+
+    <span class="n">source_code</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Program’s source code&quot;</span><span class="p">)</span>
+    <span class="n">language_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Programming language ID&quot;</span><span class="p">)</span>
+    <span class="n">additional_files</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">bytes</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Additional files that should be available alongside the source code (encoded zip)&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode_to_base64</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;source_code&quot;</span><span class="p">:</span> <span class="n">base64_encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_code</span><span class="p">),</span>
+            <span class="s2">&quot;stdin&quot;</span><span class="p">:</span> <span class="n">base64_encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdin</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span>
+            <span class="s2">&quot;expected_output&quot;</span><span class="p">:</span> <span class="n">base64_encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span><span class="p">,</span>
+            <span class="s2">&quot;additional_files&quot;</span><span class="p">:</span> <span class="n">create_encoded_zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">additional_files</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">additional_files</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.compiler_options" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">compiler_options</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">compiler_options</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Options for the compiler (i.e. compiler flags)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.command_line_arguments" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">command_line_arguments</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">command_line_arguments</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Command line arguments for the program</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.stdin" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">stdin</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">stdin</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Input for program</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.expected_output" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">expected_output</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">expected_output</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Expected output of program. Used when you want to compare with stdout</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.cpu_time_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">cpu_time_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">cpu_time_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Default runtime limit for every program (seconds)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.cpu_extra_time" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">cpu_extra_time</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">cpu_extra_time</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>When a time limit is exceeded, wait for extra time, before killing the program (seconds)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.wall_time_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">wall_time_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">wall_time_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit wall-clock time in seconds (seconds)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.memory_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">memory_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">memory_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit address space of the program (kilobytes)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.stack_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">stack_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">stack_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit process stack (kilobytes)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.max_processes_and_or_threads" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">max_processes_and_or_threads</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">max_processes_and_or_threads</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Maximum number of processes and/or threads program can create</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.enable_per_process_and_thread_time_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">enable_per_process_and_thread_time_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">enable_per_process_and_thread_time_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true then cpu_time_limit will be used as per process and thread</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.enable_per_process_and_thread_memory_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">enable_per_process_and_thread_memory_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">enable_per_process_and_thread_memory_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true then memory_limit will be used as per process and thread</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.max_file_size" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">max_file_size</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">max_file_size</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit file size created or modified by the program (kilobytes)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.redirect_stderr_to_stdout" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">redirect_stderr_to_stdout</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">redirect_stderr_to_stdout</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true standard error will be redirected to standard output</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.enable_network" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">enable_network</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">enable_network</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true program will have network access</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.number_of_runs" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">number_of_runs</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">number_of_runs</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Run each program number_of_runs times and take average of time and memory</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.callback_url" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">callback_url</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">callback_url</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>URL on which Judge0 will issue PUT request with the submission in a request body after submission has been done</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.source_code" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">source_code</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">source_code</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Program’s source code</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.language_id" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">language_id</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">language_id</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Programming language ID</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.SingleFileSubmission.additional_files" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">additional_files</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">additional_files</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Additional files that should be available alongside the source code (encoded zip)</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="judge0_client.MultiFileSubmission" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">MultiFileSubmission</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="BaseSubmission
+
+
+  
+      pydantic-model
+   (judge0_client.models.base_submission.BaseSubmission)" href="#judge0_client.BaseSubmission">BaseSubmission</a></code>, <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+
+        <p>Request model for creating a multi-file submission in Judge0.</p>
+
+    
+
+        <p>Fields:</p>
+        <ul>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="compiler_options
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.compiler_options)" href="#judge0_client.BaseSubmission.compiler_options">compiler_options</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="command_line_arguments
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.command_line_arguments)" href="#judge0_client.BaseSubmission.command_line_arguments">command_line_arguments</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="stdin
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.stdin)" href="#judge0_client.BaseSubmission.stdin">stdin</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="expected_output
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.expected_output)" href="#judge0_client.BaseSubmission.expected_output">expected_output</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="cpu_time_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.cpu_time_limit)" href="#judge0_client.BaseSubmission.cpu_time_limit">cpu_time_limit</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="cpu_extra_time
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.cpu_extra_time)" href="#judge0_client.BaseSubmission.cpu_extra_time">cpu_extra_time</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="wall_time_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.wall_time_limit)" href="#judge0_client.BaseSubmission.wall_time_limit">wall_time_limit</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="memory_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.memory_limit)" href="#judge0_client.BaseSubmission.memory_limit">memory_limit</a></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="stack_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.stack_limit)" href="#judge0_client.BaseSubmission.stack_limit">stack_limit</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="max_processes_and_or_threads
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.max_processes_and_or_threads)" href="#judge0_client.BaseSubmission.max_processes_and_or_threads">max_processes_and_or_threads</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="enable_per_process_and_thread_time_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.enable_per_process_and_thread_time_limit)" href="#judge0_client.BaseSubmission.enable_per_process_and_thread_time_limit">enable_per_process_and_thread_time_limit</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="enable_per_process_and_thread_memory_limit
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.enable_per_process_and_thread_memory_limit)" href="#judge0_client.BaseSubmission.enable_per_process_and_thread_memory_limit">enable_per_process_and_thread_memory_limit</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="max_file_size
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.max_file_size)" href="#judge0_client.BaseSubmission.max_file_size">max_file_size</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="redirect_stderr_to_stdout
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.redirect_stderr_to_stdout)" href="#judge0_client.BaseSubmission.redirect_stderr_to_stdout">redirect_stderr_to_stdout</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="enable_network
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.enable_network)" href="#judge0_client.BaseSubmission.enable_network">enable_network</a></code>
+                (<code><span title="bool">bool</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="number_of_runs
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.number_of_runs)" href="#judge0_client.BaseSubmission.number_of_runs">number_of_runs</a></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="callback_url
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.callback_url)" href="#judge0_client.BaseSubmission.callback_url">callback_url</a></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="language_id
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.language_id)" href="#judge0_client.MultiFileSubmission.language_id">language_id</a></code>
+                (<code><span title="typing.Literal">Literal</span>[89]</code>)
+            </li>
+            <li>
+              <code><a class="autorefs autorefs-internal" title="additional_files
+
+
+  
+      pydantic-field
+   (judge0_client.models.multi_file_submission.MultiFileSubmission.additional_files)" href="#judge0_client.MultiFileSubmission.additional_files">additional_files</a></code>
+                (<code><span title="typing.Mapping">Mapping</span>[<span title="str">str</span>, <span title="str">str</span> | <span title="bytes">bytes</span>]</code>)
+            </li>
+        </ul>
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/judge0_client/models/multi_file_submission.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MultiFileSubmission</span><span class="p">(</span><span class="n">BaseSubmission</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Request model for creating a multi-file submission in Judge0.&quot;&quot;&quot;</span>
+
+    <span class="n">language_id</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="mi">89</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">89</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Programming language ID&quot;</span><span class="p">)</span>
+    <span class="n">additional_files</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Scripts to run and compile and additional files&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode_to_base64</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;run&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">additional_files</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;run script should be present in additional files&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;stdin&quot;</span><span class="p">:</span> <span class="n">base64_encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdin</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span>
+            <span class="s2">&quot;expected_output&quot;</span><span class="p">:</span> <span class="n">base64_encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_output</span><span class="p">,</span>
+            <span class="s2">&quot;additional_files&quot;</span><span class="p">:</span> <span class="n">create_encoded_zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">additional_files</span><span class="p">)</span>
+        <span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.compiler_options" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">compiler_options</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">compiler_options</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Options for the compiler (i.e. compiler flags)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.command_line_arguments" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">command_line_arguments</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">command_line_arguments</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Command line arguments for the program</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.stdin" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">stdin</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">stdin</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Input for program</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.expected_output" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">expected_output</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">expected_output</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Expected output of program. Used when you want to compare with stdout</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.cpu_time_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">cpu_time_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">cpu_time_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Default runtime limit for every program (seconds)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.cpu_extra_time" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">cpu_extra_time</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">cpu_extra_time</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>When a time limit is exceeded, wait for extra time, before killing the program (seconds)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.wall_time_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">wall_time_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">wall_time_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit wall-clock time in seconds (seconds)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.memory_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">memory_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">memory_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit address space of the program (kilobytes)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.stack_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">stack_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">stack_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit process stack (kilobytes)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.max_processes_and_or_threads" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">max_processes_and_or_threads</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">max_processes_and_or_threads</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Maximum number of processes and/or threads program can create</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.enable_per_process_and_thread_time_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">enable_per_process_and_thread_time_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">enable_per_process_and_thread_time_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true then cpu_time_limit will be used as per process and thread</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.enable_per_process_and_thread_memory_limit" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">enable_per_process_and_thread_memory_limit</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">enable_per_process_and_thread_memory_limit</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true then memory_limit will be used as per process and thread</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.max_file_size" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">max_file_size</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">max_file_size</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Limit file size created or modified by the program (kilobytes)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.redirect_stderr_to_stdout" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">redirect_stderr_to_stdout</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">redirect_stderr_to_stdout</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true standard error will be redirected to standard output</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.enable_network" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">enable_network</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">enable_network</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>If true program will have network access</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.number_of_runs" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">number_of_runs</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">number_of_runs</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Run each program number_of_runs times and take average of time and memory</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.callback_url" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">callback_url</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">callback_url</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>URL on which Judge0 will issue PUT request with the submission in a request body after submission has been done</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.language_id" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">language_id</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">language_id</span> <span class="o">=</span> <span class="mi">89</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Programming language ID</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="judge0_client.MultiFileSubmission.additional_files" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">additional_files</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">additional_files</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Scripts to run and compile and additional files</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="judge0_client.SubmissionResponse" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">SubmissionResponse</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="judge0_client.models.base_response_model.BaseResponseModel">BaseResponseModel</span></code></p>
+
+        <p>Response for non-waiting submission — contains only a token.</p>
+
+    
+
+        <p>Fields:</p>
+        <ul>
+            <li>
+              <code><span title="judge0_client.models.submission_response.SubmissionResponse.token">token</span></code>
+                (<code><span title="str">str</span></code>)
+            </li>
+        </ul>
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/judge0_client/models/submission_response.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SubmissionResponse</span><span class="p">(</span><span class="n">BaseResponseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Response for non-waiting submission — contains only a token.&quot;&quot;&quot;</span>
+
+    <span class="n">token</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="judge0_client.SubmissionDetail" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">SubmissionDetail</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="judge0_client.models.base_response_model.BaseResponseModel">BaseResponseModel</span></code></p>
+
+        <p>Detailed information about submission execution.</p>
+
+    
+
+        <p>Fields:</p>
+        <ul>
+            <li>
+              <code><span title="judge0_client.models.submission_detail.SubmissionDetail.token">token</span></code>
+                (<code><span title="str">str</span></code>)
+            </li>
+            <li>
+              <code><span title="judge0_client.models.submission_detail.SubmissionDetail.status">status</span></code>
+                (<code><span title="judge0_client.models.submission_status.SubmissionStatus">SubmissionStatus</span></code>)
+            </li>
+            <li>
+              <code><span title="judge0_client.models.submission_detail.SubmissionDetail.stdout">stdout</span></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><span title="judge0_client.models.submission_detail.SubmissionDetail.stderr">stderr</span></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><span title="judge0_client.models.submission_detail.SubmissionDetail.compile_output">compile_output</span></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><span title="judge0_client.models.submission_detail.SubmissionDetail.message">message</span></code>
+                (<code><span title="str">str</span> | None</code>)
+            </li>
+            <li>
+              <code><span title="judge0_client.models.submission_detail.SubmissionDetail.time">time</span></code>
+                (<code><span title="float">float</span> | None</code>)
+            </li>
+            <li>
+              <code><span title="judge0_client.models.submission_detail.SubmissionDetail.memory">memory</span></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><span title="judge0_client.models.submission_detail.SubmissionDetail.exit_code">exit_code</span></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+            <li>
+              <code><span title="judge0_client.models.submission_detail.SubmissionDetail.language_id">language_id</span></code>
+                (<code><span title="int">int</span> | None</code>)
+            </li>
+        </ul>
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/judge0_client/models/submission_detail.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SubmissionDetail</span><span class="p">(</span><span class="n">BaseResponseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Detailed information about submission execution.&quot;&quot;&quot;</span>
+
+    <span class="n">token</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">status</span><span class="p">:</span> <span class="n">SubmissionStatus</span>
+    <span class="n">stdout</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">stderr</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">compile_output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">memory</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">exit_code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">language_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode_base64</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;stdout&quot;</span><span class="p">:</span> <span class="n">base64_decode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+            <span class="s2">&quot;stderr&quot;</span><span class="p">:</span> <span class="n">base64_decode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span>
+            <span class="s2">&quot;compile_output&quot;</span><span class="p">:</span> <span class="n">base64_decode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">compile_output</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">compile_output</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">compile_output</span><span class="p">,</span>
+            <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="n">base64_decode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">,</span>
+        <span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Judge0 Client"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Roslovets-Inc/judge0-client" class="fa fa-code-fork" style="color: #fcfcfc"> judge0-client</a>
+        </span>
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
