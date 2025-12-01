@@ -9,3 +9,7 @@ class BaseResponseModel(BaseModel):
     @classmethod
     def from_response(cls, resp: httpx.Response) -> Self:
         return cls.model_validate(resp.json())
+
+    @classmethod
+    def from_response_list(cls, resp: httpx.Response) -> list[Self]:
+        return [cls.model_validate(r) for r in resp.json()]

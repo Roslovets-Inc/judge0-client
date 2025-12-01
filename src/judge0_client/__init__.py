@@ -11,6 +11,8 @@ from .models.single_file_submission import SingleFileSubmission
 from .models.multi_file_submission import MultiFileSubmission
 from .models.submission_response import SubmissionResponse
 from .models.submission_detail import SubmissionDetail
+from .models.workers_response import WorkersResponse
+from .models.about_response import AboutResponse
 from .types import SubmissionStatusId
 
 __all__ = [
@@ -22,4 +24,6 @@ __all__ = [
     "SubmissionResponse",
     "SubmissionDetail",
     "SubmissionStatusId",
+    "WorkersResponse",
+    "AboutResponse",
 ]

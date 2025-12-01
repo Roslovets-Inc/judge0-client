@@ -125,3 +125,167 @@ def test_get_submission_decodes_base64_fields():
             await client.aclose()
 
     asyncio.run(run())
+
+
+def test_get_workers_returns_models_list():
+    workers_payload = [
+        {
+            "queue": "q-1",
+            "size": 2,
+            "available": 3,
+            "idle": 2,
+            "working": 1,
+            "paused": 0,
+            "failed": 0,
+        },
+        {
+            "queue": "q-2",
+            "size": 0,
+            "available": 5,
+            "idle": 5,
+            "working": 0,
+            "paused": 0,
+            "failed": 0,
+        },
+    ]
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        assert request.method == "GET"
+        assert request.url.path == "/workers"
+        assert request.headers.get("X-Auth-Token") == "auth"
+        return httpx.Response(200, json=workers_payload, request=request)
+
+    transport = httpx.MockTransport(handler)
+
+    client = Judge0Client(
+        base_url="https://api.example.com",
+        auth_header="X-Auth-Token",
+        auth_token="auth",
+    )
+
+    async def run():
+        client._client = httpx.AsyncClient(
+            base_url=client.base_url,
+            timeout=client.timeout,
+            headers=_default_headers("X-Auth-Token", "auth"),
+            transport=transport,
+        )
+        try:
+            workers = await client.get_workers()
+            assert isinstance(workers, list)
+            assert len(workers) == 2
+            assert workers[0].queue == "q-1"
+            assert workers[0].size == 2
+            assert workers[1].queue == "q-2"
+            assert workers[1].idle == 5
+        finally:
+            await client.aclose()
+
+    asyncio.run(run())
+
+
+def test_get_about_returns_model():
+    about_payload = {
+        "version": "v1.2.3",
+        "homepage": "https://judge0.example.com",
+        "source_code": "https://github.com/org/repo",
+        "maintainer": "Team",
+    }
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        assert request.method == "GET"
+        assert request.url.path == "/about"
+        assert request.headers.get("X-API-Key") == "k"
+        return httpx.Response(200, json=about_payload, request=request)
+
+    transport = httpx.MockTransport(handler)
+
+    client = Judge0Client(
+        base_url="https://api.example.com",
+        auth_header="X-API-Key",
+        auth_token="k",
+    )
+
+    async def run():
+        client._client = httpx.AsyncClient(
+            base_url=client.base_url,
+            timeout=client.timeout,
+            headers=_default_headers("X-API-Key", "k"),
+            transport=transport,
+        )
+        try:
+            about = await client.get_about()
+            assert about.version == "v1.2.3"
+            assert about.homepage == "https://judge0.example.com"
+            assert about.source_code == "https://github.com/org/repo"
+            assert about.maintainer == "Team"
+        finally:
+            await client.aclose()
+
+    asyncio.run(run())
+
+
+def test_get_isolate_returns_text():
+    text = "isolate 1.9.0"
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        assert request.method == "GET"
+        assert request.url.path == "/isolate"
+        assert request.headers.get("X-Auth-Token") == "authz"
+        return httpx.Response(200, text=text, request=request)
+
+    transport = httpx.MockTransport(handler)
+
+    client = Judge0Client(
+        base_url="https://api.example.com",
+        auth_header="X-Auth-Token",
+        auth_token="authz",
+    )
+
+    async def run():
+        client._client = httpx.AsyncClient(
+            base_url=client.base_url,
+            timeout=client.timeout,
+            headers=_default_headers("X-Auth-Token", "authz"),
+            transport=transport,
+        )
+        try:
+            got = await client.get_isolate()
+            assert got == text
+        finally:
+            await client.aclose()
+
+    asyncio.run(run())
+
+
+def test_get_license_returns_text():
+    license_text = "MIT License\n\nCopyright (c) ..."
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        assert request.method == "GET"
+        assert request.url.path == "/license"
+        assert request.headers.get("X-API-Key") == "sk"
+        return httpx.Response(200, text=license_text, request=request)
+
+    transport = httpx.MockTransport(handler)
+
+    client = Judge0Client(
+        base_url="https://api.example.com",
+        auth_header="X-API-Key",
+        auth_token="sk",
+    )
+
+    async def run():
+        client._client = httpx.AsyncClient(
+            base_url=client.base_url,
+            timeout=client.timeout,
+            headers=_default_headers("X-API-Key", "sk"),
+            transport=transport,
+        )
+        try:
+            got = await client.get_license()
+            assert got == license_text
+        finally:
+            await client.aclose()
+
+    asyncio.run(run())

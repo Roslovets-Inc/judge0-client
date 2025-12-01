@@ -4,6 +4,8 @@ from pydantic import SecretStr
 from .models.base_submission import BaseSubmission
 from .models.submission_detail import SubmissionDetail
 from .models.submission_response import SubmissionResponse
+from .models.workers_response import WorkersResponse
+from .models.about_response import AboutResponse
 from .utils.exceptions import raise_for_status
 
 
@@ -91,3 +93,27 @@ class Judge0Client:
         )
         raise_for_status(resp)
         return SubmissionDetail.from_response(resp).decode_base64()
+
+    async def get_workers(self) -> list[WorkersResponse]:
+        """Health-check endpoint: returns workers/queues state."""
+        resp = await self.client.get("/workers")
+        raise_for_status(resp)
+        return WorkersResponse.from_response_list(resp)
+
+    async def get_about(self) -> AboutResponse:
+        """Returns general information."""
+        resp = await self.client.get("/about")
+        raise_for_status(resp)
+        return AboutResponse.from_response(resp)
+
+    async def get_isolate(self) -> str:
+        """Returns result of isolate --version."""
+        resp = await self.client.get("/isolate")
+        raise_for_status(resp)
+        return resp.text
+
+    async def get_license(self) -> str:
+        """Returns a license."""
+        resp = await self.client.get("/license")
+        raise_for_status(resp)
+        return resp.text
