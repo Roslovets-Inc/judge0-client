@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v0.1.1 (2025-12-01)
+
+### Bug Fixes
+
+- Refactor move submission encoding to `to_body` method
+  ([`5a23298`](https://github.com/Roslovets-Inc/judge0-client/commit/5a23298fa732b25dcabba798ce91f58601392006))
+
+Replaces encode_to_base64 with to_body for submission models, consolidating base64 encoding logic
+  into to_body. Updates client and tests to use the new method for preparing submission payloads.
+
+
 ## v0.1.0 (2025-12-01)
 
 ### Bug Fixes
