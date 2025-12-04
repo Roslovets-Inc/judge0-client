@@ -34,6 +34,7 @@ class Judge0Client:
             self._auth_token = auth_token
         else:
             self._auth_token = SecretStr(auth_token) if auth_token else None
+        self._verify_certs = verify_certs
         self._client = None
 
     async def __aenter__(self) -> Self:
