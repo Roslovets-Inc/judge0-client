@@ -1,6 +1,6 @@
 [project]
 name = "judge0-client"
-version = "0.2.0"
+version = "0.3.0"
 description = "Simple Judge0 client for Python"
 authors = [
     { name = "Pavel Roslovets", email = "p.v.roslovets@gmail.com" }

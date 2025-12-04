@@ -1,6 +1,18 @@
 # CHANGELOG
 
 
+## v0.3.0 (2025-12-04)
+
+### Features
+
+- **client**: Certificate verification option to Judge0Client
+  ([`45957ce`](https://github.com/Roslovets-Inc/judge0-client/commit/45957ced5f979f5545def9d90535408d620296df))
+
+Introduces a 'verify_certs' parameter to Judge0Client for controlling SSL certificate verification
+  in the underlying httpx.AsyncClient. This enhances flexibility for environments where certificate
+  verification may need to be disabled.
+
+
 ## v0.2.0 (2025-12-01)
 
 ### Features
