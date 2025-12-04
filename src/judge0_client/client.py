@@ -15,7 +15,8 @@ class Judge0Client:
     base_url: str
     timeout: float | httpx.Timeout
     _auth_header: str
-    _auth_token: SecretStr | None = None
+    _auth_token: SecretStr | None
+    _verify_certs: bool
     _client: httpx.AsyncClient | None
 
     def __init__(
@@ -24,6 +25,7 @@ class Judge0Client:
             timeout: float | httpx.Timeout = 10.0,
             auth_header: str = "X-Auth-Token",
             auth_token: str | SecretStr | None = None,
+            verify_certs: bool = True,
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
@@ -53,7 +55,8 @@ class Judge0Client:
             self._client = httpx.AsyncClient(
                 base_url=self.base_url,
                 timeout=self.timeout,
-                headers=headers
+                headers=headers,
+                verify=self._verify_certs,
             )
 
     async def aclose(self) -> None:
