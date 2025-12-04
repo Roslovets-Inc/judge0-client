@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.3.1 (2025-12-04)
+
+### Bug Fixes
+
+- **client**: `verify_certs` works
+  ([`efb619d`](https://github.com/Roslovets-Inc/judge0-client/commit/efb619dc1fe8b078497e7a5a9808d8de4d4374ee))
+
+
 ## v0.3.0 (2025-12-04)
 
 ### Features
